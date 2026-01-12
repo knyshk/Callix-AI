@@ -144,15 +144,11 @@ The project aims to demonstrate the following indicative outcomes:
 - End-to-end response latency maintained within acceptable limits for a prototype  
 - Improved interaction experience for supported query types  
 
----
 
-## 13. Risks and Mitigation Strategies
-
-Potential risks include speech recognition inaccuracies, increased response latency, and variability in language model outputs. These risks are addressed through confidence thresholds, predefined fallback flows, restricted LLM usage, and testing with diverse sample inputs.
 
 ---
 
-## 14. Conclusion
+## 13. Conclusion
 
 This project explores the application of conversational voice automation to selected customer care scenarios relevant to small and midscale Indian enterprises. By combining speech processing, hybrid artificial intelligence, and modular system design, the prototype demonstrates practical feasibility within an academic context. The work also establishes a foundation for future refinement and expansion, should the system be extended beyond the scope of this project.
 
