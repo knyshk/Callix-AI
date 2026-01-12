@@ -164,7 +164,7 @@ This project demonstrates how conversational voice automation can significantly 
 
 ## 15. Technology Stack Options (Primary and Backup)
 
-###Other possible tech stack if something does not work.
+### Other possible tech stack if something does not work.
 
 - **Telephony Layer:** Twilio Programmable Voice for handling incoming and outgoing calls  
 - **Backend and APIs:** Python programming language with FastAPI framework  
