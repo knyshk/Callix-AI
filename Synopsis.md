@@ -108,20 +108,24 @@ Sample user utterances are collected to train and test intent detection models. 
 
 ## 10. System Design
 
-The system follows a **modular architecture** where each component performs a clearly defined function. This design allows individual components to be modified or replaced without affecting the overall system.
+### 10.1 Voice Assistant Call Flow and Architecture
 
-**System Architecture Diagram:**  
-(Refer to the architecture image added in the repository documentation)
+![Voice Assistant Call Flow](system_design.png)
+The system follows a **modular and layered architecture**, where each component is responsible for a specific stage in the customer care call lifecycle. This design ensures clarity, scalability, and ease of maintenance.
 
-High-level flow:
-- Caller initiates a phone call  
-- Telephony layer receives and streams audio  
-- Speech-to-Text engine converts audio to text  
-- Intent detection identifies the user goal  
-- Dialogue manager maintains conversation context  
-- Business logic or knowledge base processes the request  
-- Text-to-Speech engine generates spoken output  
-- Response is delivered back to the caller  
+**Call Flow Explanation:**
+
+1. The caller initiates a phone call using the public telephone network (PSTN).  
+2. The telephony layer receives the incoming call and routes it to the backend system.  
+3. The Speech-to-Text (STT) module converts the caller’s spoken input into English or Hindi text.  
+4. The intent detection module analyzes the transcribed text and identifies the user’s intent.  
+5. The dialogue manager, implemented as a finite state machine, maintains conversation context and determines the next system action.  
+6. A Large Language Model is used in a controlled manner to refine or clarify the response when required.  
+7. Business logic and database components retrieve or update relevant information such as order status or refund details.  
+8. The Text-to-Speech (TTS) module converts the generated response into natural-sounding speech.  
+9. The telephony layer delivers the synthesized voice response back to the caller.
+
+This structured flow enables efficient automation of customer care interactions while ensuring predictable behavior, low latency, and safe integration of AI components.
 
 ---
 
