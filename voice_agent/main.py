@@ -1,16 +1,18 @@
 # main.py
 
+from fastapi import FastAPI
+from pydantic import BaseModel
 from app.core.pipeline import run_pipeline
 
 
-def run_conversation():
-    user_input = input("You: ")
-
-    response = run_pipeline(user_input)
-
-    print("System:", response["response"])
+app = FastAPI()
 
 
-if __name__ == "__main__":
-    while True:
-        run_conversation()
+class ConversationRequest(BaseModel):
+    text: str
+
+
+@app.post("/conversation")
+async def conversation(request: ConversationRequest):
+    result = run_pipeline(request.text)
+    return result
