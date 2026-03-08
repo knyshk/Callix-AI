@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+voice_agent/venv/
+venv/
+.venv/
+
+# Installer / packaging
+dist/
+build/
+eggs/
+*.egg-info/
+
+# Pytest
+.pytest_cache/
+
+# IDEs
+.vscode/
+.idea/
+
+# Environment files
+.env
+.env.*

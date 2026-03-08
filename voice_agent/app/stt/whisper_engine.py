@@ -1,22 +1,36 @@
-# app/stt/whisper_engine.py
+import os
+import whisper
+import tempfile
+import shutil
+from app.core.errors_catalog import STT_ENGINE_FAILURE
 
-from app.core.errors_catalog import NO_INPUT, LOW_CONFIDENCE_STT
-from app.core.errors import VoiceError
+model = whisper.load_model("small")
 
 
-def transcribe_audio(user_input: str):
-    """
-    Simulated STT for Week 1.
-    We pass text instead of real audio.
-    """
+def transcribe_audio(uploaded_file):
+    temp_path = None
 
-    if not user_input or user_input.strip() == "":
-        return NO_INPUT
+    try:
+        with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as temp_audio:
+            shutil.copyfileobj(uploaded_file.file, temp_audio)
+            temp_path = temp_audio.name
 
-    if len(user_input.strip()) < 3:
-        return LOW_CONFIDENCE_STT
+        # reset pointer just in case
+        uploaded_file.file.seek(0)
 
-    return {
-        "text": user_input.strip(),
-        "confidence": 0.85,
-    }
+        result = model.transcribe(temp_path)
+
+        text = result["text"].strip()
+
+        return {
+            "text": text,
+            "confidence": 0.9
+        }
+
+    except Exception as e:
+        print("STT ERROR:", e)
+        return STT_ENGINE_FAILURE
+
+    finally:
+        if temp_path and os.path.exists(temp_path):
+            os.remove(temp_path)
