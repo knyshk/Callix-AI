@@ -10,5 +10,11 @@
     "refund status",
     "where is my refund",
     "did my refund come"
+  ],
+  "talk_to_agent": [
+    "talk to an agent",
+    "i need human support",
+    "connect me to support",
+    "i want to speak to an agent"
   ]
 }
