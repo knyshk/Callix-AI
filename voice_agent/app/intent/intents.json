@@ -1,0 +1,14 @@
+{
+  "check_balance": [
+    "check my balance",
+    "what is my balance",
+    "how much money do i have",
+    "show my balance"
+  ],
+  "refund_status": [
+    "check my refund",
+    "refund status",
+    "where is my refund",
+    "did my refund come"
+  ]
+}
