@@ -8,6 +8,9 @@ voice_agent/venv/
 venv/
 .venv/
 
+# Local ffmpeg distribution (don't commit binaries)
+voice_agent/ffmpeg/
+
 # Installer / packaging
 dist/
 build/
