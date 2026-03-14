@@ -1,0 +1,67 @@
+## 15. Technology Stack Options (Primary and Backup)
+
+### Other possible tech stack if something does not work.
+
+- **Telephony Layer:** Twilio Programmable Voice for handling incoming and outgoing calls  
+- **Backend and APIs:** Python programming language with FastAPI framework  
+- **Speech-to-Text:** OpenAI Whisper for accurate transcription of English and Hindi speech  
+- **Intent Detection:** Rule-based intent classifier using spaCy or scikit-learn  
+- **Dialogue Management:** Custom finite state machine implemented in Python  
+- **Text-to-Speech:** Amazon Polly or Google Text-to-Speech for natural voice output  
+- **Database:** PostgreSQL for persistent storage and Redis for session management  
+- **Frontend Dashboard:** React with Tailwind CSS for administration and analytics  
+- **Deployment:** Docker-based containerization with cloud hosting  
+
+### 15.1 Telephony Layer
+- **Option A:** Twilio (industry standard, paid)  
+- **Option B:** Asterisk (free, open-source, zero recurring cost)  
+- **Option C:** SIP + Softphone (demo-only, no PSTN dependency)  
+
+### 15.2 Speech-to-Text (STT)
+- **Option A:** Whisper (local, free, offline)  
+- **Option B:** Vosk (lightweight, CPU-based)  
+- **Option C:** Cloud STT using free credits  
+
+### 15.3 Text-to-Speech (TTS)
+- **Option A:** Coqui TTS (open-source, local)  
+- **Option B:** eSpeak (basic, lightweight)  
+- **Option C:** Amazon Polly or Google TTS  
+
+### 15.4 Intent Detection
+- Rule-based + ML using spaCy and scikit-learn  
+- Optional Rasa NLU for structured conversational flows  
+
+### 15.5 LLM Usage
+- Optional fallback only  
+- Used strictly for ambiguity resolution  
+
+### 15.6 Dialogue Management
+- Custom Finite State Machine  
+- Optional Rasa Core  
+
+### 15.7 Database and Session Management
+- PostgreSQL or SQLite  
+- Redis for session state  
+
+### 15.8 Backend Framework
+- Python with FastAPI  
+- Flask as a lightweight alternative  
+
+### 15.9 Frontend Dashboard
+- React with Tailwind CSS  
+- Simple HTML with Bootstrap as fallback  
+
+### 15.10 Deployment
+- Localhost for academic demos  
+- Free cloud tiers if required  
+
+---
+
+
+
+
+---
+
+## 13. Risks and Mitigation Strategies
+
+Potential risks include speech recognition inaccuracies, increased response latency, and variability in language model outputs. These risks are addressed through confidence thresholds, predefined fallback flows, restricted LLM usage, and testing with diverse sample inputs.
