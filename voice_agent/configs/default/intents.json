@@ -1,0 +1,109 @@
+{
+  "intents": [
+    {
+      "name": "check_order_status",
+      "display": "Check Order Status",
+      "examples": [
+        "where is my order",
+        "track my order",
+        "what is the status of my order",
+        "has my order been shipped",
+        "when will my order arrive",
+        "I want to know my order status",
+        "my order hasn't arrived yet",
+        "order delivery update"
+      ]
+    },
+    {
+      "name": "check_refund_status",
+      "display": "Check Refund Status",
+      "examples": [
+        "where is my refund",
+        "when will I get my money back",
+        "refund status",
+        "I returned the item but didn't get the refund",
+        "how long does the refund take",
+        "my refund hasn't come yet",
+        "refund update please"
+      ]
+    },
+    {
+      "name": "initiate_return",
+      "display": "Initiate Return",
+      "examples": [
+        "I want to return my order",
+        "how do I return an item",
+        "I need to send back this product",
+        "return request",
+        "I am not happy with my purchase and want to return it",
+        "product return",
+        "cancel and return my order"
+      ]
+    },
+    {
+      "name": "talk_to_agent",
+      "display": "Talk to Human Agent",
+      "examples": [
+        "connect me to an agent",
+        "I want to speak with a human",
+        "transfer to customer care",
+        "let me talk to a real person",
+        "I need human support",
+        "escalate my issue",
+        "speak to representative"
+      ]
+    },
+    {
+      "name": "cancel_order",
+      "display": "Cancel Order",
+      "examples": [
+        "cancel my order",
+        "I want to cancel",
+        "please stop my order",
+        "I no longer need this item",
+        "cancel purchase",
+        "abort my order"
+      ]
+    },
+    {
+      "name": "product_inquiry",
+      "display": "Product Inquiry",
+      "examples": [
+        "tell me about this product",
+        "what is included in the package",
+        "product details",
+        "is this item available",
+        "do you have this in stock",
+        "product information"
+      ]
+    },
+    {
+      "name": "greeting",
+      "display": "Greeting",
+      "examples": [
+        "hello",
+        "hi",
+        "good morning",
+        "good evening",
+        "hey there",
+        "namaste",
+        "I need help"
+      ]
+    },
+    {
+      "name": "goodbye",
+      "display": "Goodbye",
+      "examples": [
+        "bye",
+        "goodbye",
+        "that's all",
+        "I am done",
+        "thank you bye",
+        "nothing else",
+        "ok thanks"
+      ]
+    }
+  ],
+  "fallback_threshold": 0.45,
+  "unknown_intent": "unknown"
+}

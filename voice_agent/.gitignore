@@ -1,1 +1,24 @@
 voice_agent/venv/
+
+# Environment
+.env
+*.env
+
+# Database
+*.db
+
+# Logs
+logs/
+*.log
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+venv/
+.venv/
+
+
+*.zip

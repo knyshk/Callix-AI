@@ -1,0 +1,114 @@
+{
+  "states": {
+    "START": {
+      "description": "Initial state. Greet user and identify intent.",
+      "transitions": {
+        "greeting": "GREET",
+        "check_order_status": "COLLECT_ORDER_ID",
+        "check_refund_status": "COLLECT_ORDER_ID",
+        "initiate_return": "COLLECT_ORDER_ID",
+        "cancel_order": "COLLECT_ORDER_ID",
+        "product_inquiry": "HANDLE_INQUIRY",
+        "talk_to_agent": "ESCALATE",
+        "goodbye": "END",
+        "unknown": "CLARIFY"
+      }
+    },
+    "GREET": {
+      "description": "Greet the user and ask how to help.",
+      "transitions": {
+        "check_order_status": "COLLECT_ORDER_ID",
+        "check_refund_status": "COLLECT_ORDER_ID",
+        "initiate_return": "COLLECT_ORDER_ID",
+        "cancel_order": "COLLECT_ORDER_ID",
+        "product_inquiry": "HANDLE_INQUIRY",
+        "talk_to_agent": "ESCALATE",
+        "goodbye": "END",
+        "unknown": "CLARIFY"
+      }
+    },
+    "COLLECT_ORDER_ID": {
+      "description": "Ask user for their order ID.",
+      "slots": ["order_id"],
+      "transitions": {
+        "slot_filled": "EXECUTE_BUSINESS_LOGIC",
+        "talk_to_agent": "ESCALATE",
+        "goodbye": "END",
+        "unknown": "RE_COLLECT_ORDER_ID"
+      }
+    },
+    "RE_COLLECT_ORDER_ID": {
+      "description": "Re-ask for order ID after failed attempt.",
+      "slots": ["order_id"],
+      "max_retries": 2,
+      "transitions": {
+        "slot_filled": "EXECUTE_BUSINESS_LOGIC",
+        "max_retries_reached": "ESCALATE",
+        "talk_to_agent": "ESCALATE",
+        "goodbye": "END"
+      }
+    },
+    "EXECUTE_BUSINESS_LOGIC": {
+      "description": "Execute the relevant business logic action.",
+      "transitions": {
+        "success": "GENERATE_RESPONSE",
+        "not_found": "NOT_FOUND",
+        "error": "ESCALATE"
+      }
+    },
+    "GENERATE_RESPONSE": {
+      "description": "Return result to user and ask if they need more help.",
+      "transitions": {
+        "check_order_status": "COLLECT_ORDER_ID",
+        "check_refund_status": "COLLECT_ORDER_ID",
+        "initiate_return": "COLLECT_ORDER_ID",
+        "cancel_order": "COLLECT_ORDER_ID",
+        "talk_to_agent": "ESCALATE",
+        "goodbye": "END",
+        "unknown": "CLARIFY"
+      }
+    },
+    "HANDLE_INQUIRY": {
+      "description": "Handle product or general inquiry.",
+      "transitions": {
+        "goodbye": "END",
+        "talk_to_agent": "ESCALATE",
+        "unknown": "CLARIFY"
+      }
+    },
+    "CLARIFY": {
+      "description": "Ask the user to clarify their request.",
+      "max_retries": 2,
+      "transitions": {
+        "check_order_status": "COLLECT_ORDER_ID",
+        "check_refund_status": "COLLECT_ORDER_ID",
+        "initiate_return": "COLLECT_ORDER_ID",
+        "cancel_order": "COLLECT_ORDER_ID",
+        "talk_to_agent": "ESCALATE",
+        "goodbye": "END",
+        "max_retries_reached": "ESCALATE"
+      }
+    },
+    "NOT_FOUND": {
+      "description": "Order/record not found.",
+      "transitions": {
+        "check_order_status": "COLLECT_ORDER_ID",
+        "check_refund_status": "COLLECT_ORDER_ID",
+        "talk_to_agent": "ESCALATE",
+        "goodbye": "END",
+        "unknown": "CLARIFY"
+      }
+    },
+    "ESCALATE": {
+      "description": "Escalate to human agent.",
+      "transitions": {
+        "goodbye": "END"
+      }
+    },
+    "END": {
+      "description": "Conversation ended.",
+      "transitions": {}
+    }
+  },
+  "initial_state": "START"
+}

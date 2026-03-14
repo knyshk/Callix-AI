@@ -1,0 +1,38 @@
+{
+  "responses": {
+    "START": "Hello! Welcome to customer support. How can I help you today?",
+    "GREET": "Hi there! I'm here to help. You can ask me about your order status, refund, returns, or anything else. What do you need help with?",
+    "COLLECT_ORDER_ID": "Sure, I can help with that. Could you please share your order ID?",
+    "RE_COLLECT_ORDER_ID": "I didn't catch that. Could you please repeat your order ID? It usually looks like ORD followed by numbers.",
+    "NOT_FOUND": "I'm sorry, I couldn't find an order with that ID. Please double-check and try again, or I can connect you to a human agent.",
+    "ESCALATE": "I understand. Let me connect you to one of our customer care agents. Please hold on for a moment.",
+    "END": "Thank you for contacting us. Have a great day!",
+    "CLARIFY": "I'm sorry, I didn't quite understand that. Could you please rephrase? You can ask about your order status, refund, or return.",
+    "HANDLE_INQUIRY": "I'd be happy to help with your inquiry. Could you please provide more details about what you're looking for?",
+    "order_status": {
+      "processing": "Your order {order_id} is currently being processed and will be shipped soon.",
+      "shipped": "Great news! Your order {order_id} has been shipped and is on its way. Expected delivery: {eta}.",
+      "delivered": "Your order {order_id} has been delivered. If you have any issues, I can help with a return.",
+      "cancelled": "Your order {order_id} has been cancelled. If you need anything else, let me know."
+    },
+    "refund_status": {
+      "pending": "Your refund for order {order_id} is being processed. It will be credited within 5-7 business days.",
+      "approved": "Your refund for order {order_id} has been approved and will reach your account in 2-3 business days.",
+      "completed": "Your refund for order {order_id} has already been processed and credited to your original payment method.",
+      "rejected": "Unfortunately, your refund request for order {order_id} was rejected. Would you like to speak to an agent?"
+    },
+    "return": {
+      "initiated": "Your return request for order {order_id} has been initiated. Our team will contact you within 24 hours to arrange pickup.",
+      "already_exists": "A return request for order {order_id} already exists and is being processed.",
+      "not_eligible": "Sorry, order {order_id} is not eligible for return as it falls outside the return window."
+    },
+    "cancel": {
+      "success": "Your order {order_id} has been successfully cancelled. A refund will be initiated if applicable.",
+      "already_shipped": "Unfortunately, order {order_id} has already been shipped and cannot be cancelled. You can initiate a return once received.",
+      "not_found": "I couldn't find order {order_id} to cancel."
+    },
+    "emotion_frustrated": "I understand this is frustrating. Let me help you resolve this as quickly as possible.",
+    "emotion_angry": "I sincerely apologize for the inconvenience. I want to make this right for you.",
+    "unknown_fallback": "I'm not sure I understand. Could you please rephrase your question? You can ask about order status, refunds, returns, or connect with an agent."
+  }
+}
