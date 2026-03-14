@@ -22,3 +22,6 @@ venv/
 
 
 *.zip
+
+# Local credentials
+twilio.txt
